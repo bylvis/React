@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Person{
+            // 构造器方法
+            constructor(name,age){
+                // 构造器中的this是类的实例对象 可以不写构造器 但是最好写
+                this.name = name
+                this.age = age
+            }
+            speak(){
+                // speak方法在类的原型对象上，供实例使用
+                console.log(`i am ${this.name}, i am ${this.age}`);
+            }
+        }
+        const p1 = new Person('tom',18)
+        const p2 = new Person('jerry',19)
+
+        p1.speak()
+        p2.speak()
+    </script>
+</body>
+</html>

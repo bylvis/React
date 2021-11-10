@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsx语法规则</title>
+    <style>
+        .title{
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="test">
+
+    </div>
+    <!-- 引入react核心库 -->
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <!-- 引入react操作Dom库 -->
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <!-- 引入babel jsx->js -->
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+    <!-- 此处必须写babel -->
+    <script type="text/babel">
+        const myid = 'BylYuYu'
+        const mydata = 'HeLLo,rEacT' 
+        // 1.创建虚拟Dom
+        const  VDOM = (
+            <div>
+                <h2 id={myid.toLowerCase()} className='title'>
+                    <span style={{ color: 'white',fontSize:'20px'}}>
+                        {mydata.toLowerCase()}
+                    </span>
+                </h2>
+                <h2 id={myid.toUpperCase()} className='title'>
+                    <span style={{ color: 'white',fontSize:'20px'}}>
+                        {mydata.toUpperCase()}
+                    </span>
+                </h2>
+                <input type="text" />
+                <Good>good</Good>
+            </div>
+        )
+        ReactDOM.render(VDOM,document.querySelector('#test'))
+        /*
+            jsx语法规则
+                1.定义虚拟DOM，不加引号
+                2.标签混入JS表达式要用{}
+                3.样式类名不用class而用className 
+                4.内联样式，style={{ key:value }} 小驼峰命名
+                5.虚拟DOM必须只有一个根标签
+                6.标签必须闭合
+                7.标签首字母
+                    (1).小写字母开头,转为html同名元素,无则报错
+                    (2).大写字母,React渲染对应的组件，组件未定义则报错
+        */
+    </script>
+</body>
+
+</html>

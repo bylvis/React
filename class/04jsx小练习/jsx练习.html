@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="test"></div>
+    <!-- 引入react核心库 -->
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <!-- 引入react操作Dom库 -->
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <!-- 引入babel jsx->js -->
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+    <!-- 此处必须写babel -->
+    <script type="text/babel">
+        /*
+            注意区分：【js表达式】与【js语句代码】
+                1.表达式：表达式会产生值，可以放在任何一个需要值的地方
+                    (1).a+b
+                    (2).function(){
+                        return 1
+                    }
+                    只要有return的值 就能插入到虚拟dom里面
+
+                2.语句：if for switch 等
+        */
+        // 0.创建虚拟数据
+        const data = ['Augular','React','Vue']
+        // 1.创建虚拟Dom
+        const VDOM = (
+            <div>
+                <h1>前端主流框架</h1>
+                <ul>
+                    {
+                        data.map((item, index) => {
+                            return <li key={index}>{item}</li>
+                        })
+                    }
+                </ul>
+            </div>
+
+        ) //此处不加引号 因为本质不是字符串
+        // 2.渲染虚拟Dom到页面
+        ReactDOM.render(VDOM, document.getElementById('test'))
+    </script>
+</body>
+
+</html>
