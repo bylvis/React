@@ -26,9 +26,11 @@ class Mouse extends React.Component{
         return this.props.children(this.state)
     }
 }
+
 Mouse.propTypes = {
     children:PropTypes.func.isRequired
 }
+
 class App extends React.Component {
     render() {
         return (
